@@ -19,10 +19,10 @@ class Proyecto(models.Model):
     descripcion_corta = models.CharField(max_length=140)
     descripcion_larga = models.CharField(max_length=255,null=True)
     estado = models.CharField(max_length=1,null=True)
-    usuario_creacion = models.ForeignKey(Recurso,on_delete = models.CASCADE)
+    usuario_creacion = models.ForeignKey(Recurso,on_delete = models.CASCADE, related_name='creacion_proyecto')
     fecha_creacion = models.DateTimeField(auto_now=True, auto_now_add=False)
     fecha_final = models.DateTimeField(auto_now=False, auto_now_add=False)
-    #usuarios_asginados = many to many #checkear many to many
+    usuarios_asignados = models.ManyToManyField(Recurso, related_name='asginados_proyecto') #checkear many to many
     
 
 class Tarea(models.Model):
@@ -32,11 +32,11 @@ class Tarea(models.Model):
     descripcion_larga = models.CharField(max_length=255,null=True)
     prioridad = models.CharField(max_length=1,null=True)
     estado = models.CharField(max_length=1,null=True)
-    usuario_creacion = models.ForeignKey(Recurso,on_delete = models.CASCADE)
+    usuario_creacion = models.ForeignKey(Recurso,on_delete = models.CASCADE, related_name='creacion_tarea')
     fecha_creacion = models.DateTimeField(auto_now=True, auto_now_add=False)
     fecha_final = models.DateTimeField(auto_now=False, auto_now_add=False)
     proyecto = models.ForeignKey(Proyecto,on_delete = models.CASCADE)
-    #usuarios_asginados = many to many #checkear many to many
+    usuarios_asignados = models.ManyToManyField(Recurso, related_name='asignados_tarea') #checkear many to many
 
 
 class Auditoria(models.Model):
