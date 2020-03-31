@@ -12,7 +12,6 @@ class Recurso(models.Model):
     imagen = models.ImageField(upload_to = 'static/', default = 'pic_folder/None/no-img.jpg')
     
 
-
 class Proyecto(models.Model):
     id = models.IntegerField(primary_key=True) #CODIGO - pendiente de preguntar (directorio activo)
     nombre = models.CharField(max_length=50)
@@ -49,3 +48,10 @@ class Auditoria(models.Model):
 class Validacion(models.Model):
     usuario = models.ForeignKey(Recurso,on_delete = models.CASCADE)
     password = models.CharField(max_length=50)
+
+
+class Tiempo_Tarea(models.Model):
+    usuario = models.ForeignKey(Recurso,on_delete = models.CASCADE)
+    tarea = models.ForeignKey(Tarea,on_delete = models.CASCADE)
+    fecha = models.DateTimeField(auto_now=True, auto_now_add=False)
+    horas = models.IntegerField()
