@@ -10,6 +10,9 @@ class Recurso(models.Model):
     email = models.EmailField(max_length=254)
     tipo = models.CharField(max_length=1)
     imagen = models.ImageField(upload_to = 'static/', default = 'pic_folder/None/no-img.jpg')
+
+    def __str__(self):         
+        return self.nombre
     
 
 class Proyecto(models.Model):
@@ -22,6 +25,9 @@ class Proyecto(models.Model):
     fecha_creacion = models.DateTimeField(auto_now=True, auto_now_add=False)
     fecha_final = models.DateTimeField(auto_now=False, auto_now_add=False)
     usuarios_asignados = models.ManyToManyField(Recurso, related_name='asginados_proyecto') #checkear many to many
+
+    def __str__(self):         
+        return self.nombre
     
 
 class Tarea(models.Model):
@@ -36,6 +42,9 @@ class Tarea(models.Model):
     fecha_final = models.DateTimeField(auto_now=False, auto_now_add=False)
     proyecto = models.ForeignKey(Proyecto,on_delete = models.CASCADE)
     usuarios_asignados = models.ManyToManyField(Recurso, related_name='asignados_tarea') #checkear many to many
+
+    def __str__(self):         
+        return self.nombre
 
 
 class Auditoria(models.Model):

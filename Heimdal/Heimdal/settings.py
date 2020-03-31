@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import urllib
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -78,6 +79,12 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'heimdal',
+        'CLIENT': {
+            'host': 'mongodb+srv://admin:admin@heimdal-7dgh0.mongodb.net/test?retryWrites=true&w=majority',
+            'username': 'admin',
+            'password': 'admin',
+            'port' : 27017,
+        }
     }
 }
 
