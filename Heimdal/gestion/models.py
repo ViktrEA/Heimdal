@@ -53,5 +53,5 @@ class Validacion(models.Model):
 class Tiempo_Tarea(models.Model):
     usuario = models.ForeignKey(Recurso,on_delete = models.CASCADE)
     tarea = models.ForeignKey(Tarea,on_delete = models.CASCADE)
-    fecha = models.DateTimeField(auto_now=True, auto_now_add=False)
+    fecha = models.DateTimeField(auto_now=False, auto_now_add=False)
     horas = models.IntegerField()
