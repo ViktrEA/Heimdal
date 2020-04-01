@@ -1,6 +1,9 @@
+
 from rest_framework import viewsets
 from gestion.models import Recurso, Proyecto, Tarea, Auditoria, Validacion, Tiempo_Tarea
 from gestion.api.serializers import RecursoSerializer, ProyectoSerializer, TareaSerializer, AuditoriaSerializer, ValidacionSerializer, Tiempo_TareaSerializer
+
+
 
 class RecursoViewSet(viewsets.ModelViewSet):
     queryset = Recurso.objects.all()
