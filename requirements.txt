@@ -1,0 +1,6 @@
+Añadir por consola(pip install):
+
+django
+pillow
+django-crispy-forms
+djangorestframeworks

@@ -51,7 +51,7 @@ class Auditoria(models.Model):
     fecha_cambio = models.DateTimeField(auto_now=True, auto_now_add=False)
     usuario_cambio = models.ForeignKey(Recurso,on_delete = models.CASCADE)
     tipo = models.CharField(max_length=1,null=True)
-    auditoria_id = models.IntegerField()
+    referencia_id = models.IntegerField()
 
 
 class Validacion(models.Model):
