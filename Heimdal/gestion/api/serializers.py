@@ -30,5 +30,5 @@ class ValidacionSerializer(serializers.HyperlinkedModelSerializer):
 
 class Tiempo_TareaSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = Auditoria
+        model = Tiempo_Tarea
         fields = ('usuario', 'tarea', 'fecha', 'horas')
