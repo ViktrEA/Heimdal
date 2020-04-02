@@ -3,3 +3,4 @@ Añadir por consola(pip install):
 django
 pillow
 djangorestframeworks
+djongo

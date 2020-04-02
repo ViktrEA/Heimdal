@@ -6,7 +6,7 @@ from gestion.models import Recurso, Proyecto, Tarea, Auditoria, Validacion, Tiem
 class RecursoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Recurso
-        fields = ('codigo', 'nombre', 'primer_apellido', 'segundo_apellido', 'email', 'tipo', 'imagen')
+        fields = '__all__'
 
 class ProyectoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
