@@ -1,8 +1,10 @@
 
+from rest_framework import generics
+from rest_framework.views import APIView
+from rest_framework.response import Response
 from rest_framework import viewsets
 from gestion.models import Recurso, Proyecto, Tarea, Auditoria, Validacion, Tiempo_Tarea
 from gestion.api.serializers import RecursoSerializer, ProyectoSerializer, TareaSerializer, AuditoriaSerializer, ValidacionSerializer, Tiempo_TareaSerializer
-
 
 
 class RecursoViewSet(viewsets.ModelViewSet):
@@ -28,3 +30,5 @@ class ValidacionViewSet(viewsets.ModelViewSet):
 class Tiempo_TareaViewSet(viewsets.ModelViewSet):
     queryset = Tiempo_Tarea.objects.all()
     serializer_class = Tiempo_TareaSerializer
+
+
