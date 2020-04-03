@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Recurso(models.Model):
-    codigo = models.IntegerField(primary_key=True) #CODIGO - pendiente de preguntar (directorio activo)
+    id = models.IntegerField(primary_key=True) #CODIGO - pendiente de preguntar (directorio activo)
     nombre = models.CharField(max_length=50)
     primer_apellido = models.CharField(max_length=50)
     segundo_apellido = models.CharField(max_length=50,null=True)
@@ -16,7 +16,7 @@ class Recurso(models.Model):
     
 
 class Proyecto(models.Model):
-    codigo = models.IntegerField(primary_key=True) #CODIGO - pendiente de preguntar (directorio activo)
+    id = models.IntegerField(primary_key=True) #CODIGO - pendiente de preguntar (directorio activo)
     nombre = models.CharField(max_length=50)
     descripcion_corta = models.CharField(max_length=140)
     descripcion_larga = models.CharField(max_length=255,null=True)
@@ -31,7 +31,7 @@ class Proyecto(models.Model):
     
 
 class Tarea(models.Model):
-    codigo = models.IntegerField(primary_key=True) #CODIGO - pendiente de preguntar (directorio activo)
+    id = models.IntegerField(primary_key=True) #CODIGO - pendiente de preguntar (directorio activo)
     nombre = models.CharField(max_length=50)
     descripcion_corta = models.CharField(max_length=140)
     descripcion_larga = models.CharField(max_length=255,null=True)

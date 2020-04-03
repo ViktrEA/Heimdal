@@ -14,7 +14,11 @@ class RecursoViewSet(viewsets.ModelViewSet):
 class ProyectoViewSet(viewsets.ModelViewSet):
     queryset = Proyecto.objects.all()
     serializer_class = ProyectoSerializer
-    
+    def perform_create(self, serializer):
+        serializer.save(id=87298222, estado='P', usuario_creacion=Recurso.objects.get(pk = 3))
+    def perform_update(self, serializer):
+        serializer.save()
+
 class TareaViewSet(viewsets.ModelViewSet):
     queryset = Tarea.objects.all()
     serializer_class = TareaSerializer
@@ -30,5 +34,3 @@ class ValidacionViewSet(viewsets.ModelViewSet):
 class Tiempo_TareaViewSet(viewsets.ModelViewSet):
     queryset = Tiempo_Tarea.objects.all()
     serializer_class = Tiempo_TareaSerializer
-
-

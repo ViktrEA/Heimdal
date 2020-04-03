@@ -4,3 +4,4 @@ django
 pillow
 djangorestframeworks
 djongo
+dnspython

@@ -28,8 +28,6 @@ router.register('validacion', views.ValidacionViewSet)
 router.register('tiempo_tarea', views.Tiempo_TareaViewSet)
 
 
-
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),

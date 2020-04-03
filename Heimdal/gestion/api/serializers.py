@@ -12,7 +12,6 @@ class ProyectoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Proyecto
         fields = '__all__'
-
 class TareaSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Tarea
