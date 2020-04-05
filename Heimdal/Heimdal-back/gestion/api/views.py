@@ -10,26 +10,33 @@ from gestion.api.serializers import RecursoSerializer, ProyectoSerializer, Tarea
 class RecursoViewSet(viewsets.ModelViewSet):
     queryset = Recurso.objects.all()
     serializer_class = RecursoSerializer
+    def perform_create(self, serializer):
+        serializer.save(id=1)
+
 
 class ProyectoViewSet(viewsets.ModelViewSet):
     queryset = Proyecto.objects.all()
     serializer_class = ProyectoSerializer
     def perform_create(self, serializer):
-        serializer.save(id=87298222, estado='P', usuario_creacion=Recurso.objects.get(pk = 3))
+        serializer.save(id=1)#apoyo--> estado='P', usuario_creacion=Recurso.objects.get(pk = 3))
     def perform_update(self, serializer):
         serializer.save()
+
 
 class TareaViewSet(viewsets.ModelViewSet):
     queryset = Tarea.objects.all()
     serializer_class = TareaSerializer
 
+
 class AuditoriaViewSet(viewsets.ModelViewSet):
     queryset = Auditoria.objects.all()
     serializer_class = AuditoriaSerializer
 
+
 class ValidacionViewSet(viewsets.ModelViewSet):
     queryset = Validacion.objects.all()
     serializer_class = ValidacionSerializer
+
 
 class Tiempo_TareaViewSet(viewsets.ModelViewSet):
     queryset = Tiempo_Tarea.objects.all()

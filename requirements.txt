@@ -5,3 +5,5 @@ pillow
 djangorestframeworks
 djongo
 dnspython
+instalar Node.js
+nmp install -g @angular/cli
