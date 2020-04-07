@@ -1,8 +1,10 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
 class Recurso(models.Model):
+    id = models.ForeignKey(User, on_delete = models.CASCADE, related_name='usuario', primary_key=True)
     codigo = models.CharField(max_length=50)
     nombre = models.CharField(max_length=50)
     primer_apellido = models.CharField(max_length=50)
