@@ -16,7 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from gestion.api import views
+from rest_framework.authtoken import views as tokenviews
+from gestion import views
+from gestion.views import Login, Logout
+
+
 
 
 router = routers.DefaultRouter()
@@ -30,5 +34,8 @@ router.register('tiempo_tarea', views.Tiempo_TareaViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls)),
+    path('gestion/', include(router.urls)),
+    path('gestion_generate_token/', tokenviews.obtain_auth_token),
+    path('login/', Login.as_view(), name='login'),
+    path('logout/', Logout.as_view()),
 ]
