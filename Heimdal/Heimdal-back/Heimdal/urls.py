@@ -16,9 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from rest_framework.authtoken import views as tokenviews
+from rest_framework.authtoken.views import ObtainAuthToken
 from gestion import views
-from gestion.views import Login, Logout
 
 
 
@@ -30,12 +29,11 @@ router.register('tarea', views.TareaViewSet)
 router.register('auditoria', views.AuditoriaViewSet)
 router.register('validacion', views.ValidacionViewSet)
 router.register('tiempo_tarea', views.Tiempo_TareaViewSet)
+router.register('user', views.UserViewSet)
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('gestion/', include(router.urls)),
-    path('gestion_generate_token/', tokenviews.obtain_auth_token),
-    path('login/', Login.as_view(), name='login'),
-    path('logout/', Logout.as_view()),
+    path('auth/', ObtainAuthToken.as_view()),
 ]

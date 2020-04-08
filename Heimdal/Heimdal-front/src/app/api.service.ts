@@ -2,18 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class ApiService {
-
-  baseurl = "http://127.0.0.1:8000"
-  httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
+@Injectable()
+  export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  getAllRecursos(): Observable<any>{
-    return this.http.get(this.baseurl + '/gestion/recurso/', {headers: this.httpHeaders});
+  registroNuevoUsuario(userData): Observable<any> {
+    return this.http.post('http://127.0.0.1:8000/gestion/user/', userData);
+  }
+  loginUsuario(userData): Observable<any> {
+    return this.http.post('http://127.0.0.1:8000/auth/', userData);
   }
 
 }

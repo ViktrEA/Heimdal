@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Heimdal": {
+    "Heimdal-front": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Heimdal",
+            "outputPath": "dist/Heimdal-front",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Heimdal:build"
+            "browserTarget": "Heimdal-front:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Heimdal:build:production"
+              "browserTarget": "Heimdal-front:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Heimdal:build"
+            "browserTarget": "Heimdal-front:build"
           }
         },
         "test": {
@@ -114,19 +114,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Heimdal:serve"
+            "devServerTarget": "Heimdal-front:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Heimdal:serve:production"
+              "devServerTarget": "Heimdal-front:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "Heimdal",
+  "defaultProject": "Heimdal-front",
   "cli": {
-    "analytics": "fc009aca-0a53-4e3f-8699-e5e4dfa857f9"
+    "analytics": "4c43da44-fb6e-4cdf-8ed3-12b66b103981"
   }
 }
