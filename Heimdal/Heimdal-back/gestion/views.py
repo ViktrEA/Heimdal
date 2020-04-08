@@ -1,6 +1,5 @@
 
 from django.shortcuts import render,redirect
-from .models import Recurso, Proyecto, Tarea, Auditoria, Validacion, Tiempo_Tarea
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import never_cache
@@ -9,6 +8,8 @@ from django.views.generic.edit import FormView
 from django.contrib.auth import login, logout, authenticate
 from django.http import HttpResponseRedirect
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.models import User
+from .models import Recurso, Proyecto, Tarea, Auditoria, Validacion, Tiempo_Tarea
 
 from rest_framework.authtoken.models import Token
 from rest_framework.permissions import IsAuthenticated
@@ -25,10 +26,8 @@ from .serializers import RecursoSerializer, ProyectoSerializer, TareaSerializer,
 class RecursoViewSet(viewsets.ModelViewSet):
     queryset = Recurso.objects.all()
     serializer_class = RecursoSerializer
-    permission_classes = (IsAuthenticated,)
     authentication_class = (TokenAuthentication,)
-    def perform_create(self, serializer):
-        serializer.save(id=1)
+    permission_classes = (IsAuthenticated,)
 
 
 class ProyectoViewSet(viewsets.ModelViewSet):
@@ -38,7 +37,7 @@ class ProyectoViewSet(viewsets.ModelViewSet):
         serializer.save(id=1)#apoyo--> estado='P', usuario_creacion=Recurso.objects.get(pk = 3))
     def perform_update(self, serializer):
         serializer.save()
-
+        
 
 class TareaViewSet(viewsets.ModelViewSet):
     queryset = Tarea.objects.all()

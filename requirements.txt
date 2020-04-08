@@ -8,3 +8,4 @@ dnspython
 instalar Node.js
 nmp install -g @angular/cli
 httpie (solo para probar)
+django-cors-headers

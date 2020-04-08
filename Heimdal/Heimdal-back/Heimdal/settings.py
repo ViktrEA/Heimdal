@@ -28,6 +28,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:4200',
+)
+
 
 # Application definition
 
@@ -42,6 +46,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_framework',
 
+    'corsheaders',
+
     'gestion',
     
 ]
@@ -55,6 +61,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'Heimdal.urls'
