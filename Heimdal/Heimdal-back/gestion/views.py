@@ -26,8 +26,6 @@ from .serializers import RecursoSerializer, ProyectoSerializer, TareaSerializer,
 class RecursoViewSet(viewsets.ModelViewSet):
     queryset = Recurso.objects.all()
     serializer_class = RecursoSerializer
-    authentication_classes = (TokenAuthentication,)
-    permission_classes = (IsAuthenticated,)
 
 
 class ProyectoViewSet(viewsets.ModelViewSet):
