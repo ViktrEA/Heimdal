@@ -1,10 +1,10 @@
+
 from django.db import models
 from django.contrib.auth.models import User
 
-# Create your models here.
 
 class Recurso(models.Model):
-    id = models.ForeignKey(User, on_delete = models.CASCADE, related_name='usuario', primary_key=True)
+    usuario = models.OneToOneField(User, on_delete = models.CASCADE, related_name='usuario', primary_key=True)
     codigo = models.CharField(max_length=50)
     nombre = models.CharField(max_length=50)
     primer_apellido = models.CharField(max_length=50)
@@ -23,7 +23,7 @@ class Proyecto(models.Model):
     descripcion_corta = models.CharField(max_length=140)
     descripcion_larga = models.CharField(max_length=255,null=True)
     estado = models.CharField(max_length=1,null=True)
-    usuario_creacion = models.ForeignKey(Recurso,on_delete = models.CASCADE, related_name='creacion_proyecto')
+    usuario_creacion = models.ManyToManyField(Recurso, related_name='creacion_proyecto')
     fecha_creacion = models.DateTimeField(auto_now=True, auto_now_add=False)
     fecha_final = models.DateTimeField(auto_now=False, auto_now_add=False)
     usuarios_asignados = models.ManyToManyField(Recurso, related_name='asginados_proyecto') #checkear many to many
@@ -39,7 +39,7 @@ class Tarea(models.Model):
     descripcion_larga = models.CharField(max_length=255,null=True)
     prioridad = models.CharField(max_length=1,null=True)
     estado = models.CharField(max_length=1,null=True)
-    usuario_creacion = models.ForeignKey(Recurso,on_delete = models.CASCADE, related_name='creacion_tarea')
+    usuario_creacion = models.ManyToManyField(Recurso, related_name='creacion_tarea')
     fecha_creacion = models.DateTimeField(auto_now=True, auto_now_add=False)
     fecha_final = models.DateTimeField(auto_now=False, auto_now_add=False)
     proyecto = models.ForeignKey(Proyecto,on_delete = models.CASCADE)

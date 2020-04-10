@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 class RecursoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Recurso
-        fields = ('id', 'codigo', 'nombre', 'primer_apellido', 'segundo_apellido', 'email', 'tipo', 'imagen')
+        fields = '__all__'#('id', 'codigo', 'nombre', 'primer_apellido', 'segundo_apellido', 'email', 'tipo', 'imagen')
 
 class ProyectoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -33,10 +33,12 @@ class Tiempo_TareaSerializer(serializers.HyperlinkedModelSerializer):
         model = Tiempo_Tarea
         fields = '__all__'
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class UserSerializer(serializers.HyperlinkedModelSerializer):   
+    recurso = RecursoSerializer()
+
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'password')
+        fields = ('id', 'username', 'email', 'password', 'recurso')
         extra_kwargs = {'password' : {'write_only': True, 'required': True}}
 
     def create(self, validated_data):
