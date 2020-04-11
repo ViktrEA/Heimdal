@@ -1,11 +1,21 @@
-<div style="text-align: center;">
-  <h1>
-    Heimdal
-  </h1>
-  <input [(ngModel)]="input.username" placeholder="Nombre Usuario"><br><br>
-  <input [(ngModel)]="input.password" type="password" placeholder="Contraseña"><br><br>
-  <input [(ngModel)]="input.email" type="email" placeholder="Email"><br><br>
-  <button (click)="registroUsuario()">Registrar Usuario</button>
-  <button (click)="onLogin()">Log In</button>
+<app-navbar></app-navbar>
+<div class="d-flex" id="wrapper">
+    <app-sidebar></app-sidebar>
+    <div id="page-content-wrapper">
+        <div class=" container-fluid text-center ">
+            <br>
+            <h1>
+                Heimdal
+            </h1>
+            <input [(ngModel)]="input.username " placeholder="Nombre Usuario "><br><br>
+            <input [(ngModel)]="input.password " type="password " placeholder="Contraseña "><br><br>
+            <input [(ngModel)]="input.email " type="email " placeholder="Email "><br><br>
+            <button (click)="registroUsuario() ">Registrar Usuario</button>
+            <button (click)="onLogin() ">Log In</button>
+        </div>
+        <br><br>
+        <div id="page-content-wrapper ">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
 </div>
-<router-outlet></router-outlet>
