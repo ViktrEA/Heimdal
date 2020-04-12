@@ -11,9 +11,6 @@ import { HomeComponent } from './components/home/home.component';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { RecursosComponent } from './components/recursos/recursos.component';
 import { LoginComponent } from './components/login/login.component';
-
-// importar rutas
-import { ROUTES } from './app.routes';
 import { SidebarComponent } from './components/shared/sidebar/sidebar.component';
 
 @NgModule({
@@ -31,7 +28,6 @@ import { SidebarComponent } from './components/shared/sidebar/sidebar.component'
     AppRoutingModule, 
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(ROUTES, { useHash: true })
   ],
   providers: [],
   bootstrap: [AppComponent]
