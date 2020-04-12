@@ -25,7 +25,7 @@ import { SidebarComponent } from './components/shared/sidebar/sidebar.component'
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, 
+    AppRoutingModule,
     HttpClientModule,
     FormsModule,
   ],

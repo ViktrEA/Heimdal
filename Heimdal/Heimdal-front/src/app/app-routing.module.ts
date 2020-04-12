@@ -10,8 +10,8 @@ const routes: Routes = [
   { path: 'proyectos', component: ProyectosComponent },
   { path: 'recursos', component: RecursosComponent },
   { path: 'login', component: LoginComponent },
-  { path: '', pathMatch: 'full', redirectTo: 'home' },
-  { path: '**', pathMatch: 'full', redirectTo: 'home' }
+  // { path: '', pathMatch: 'full', redirectTo: 'home' },
+  // { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 
 @NgModule({
