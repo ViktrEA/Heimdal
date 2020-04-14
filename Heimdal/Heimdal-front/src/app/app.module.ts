@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +11,7 @@ import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { RecursosComponent } from './components/recursos/recursos.component';
 import { LoginComponent } from './components/login/login.component';
 import { SidebarComponent } from './components/shared/sidebar/sidebar.component';
+import { RegistroComponent } from './components/registro/registro.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,8 @@ import { SidebarComponent } from './components/shared/sidebar/sidebar.component'
     ProyectosComponent,
     RecursosComponent,
     LoginComponent,
-    SidebarComponent
+    SidebarComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,

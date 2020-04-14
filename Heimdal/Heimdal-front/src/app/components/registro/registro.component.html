@@ -1,31 +1,34 @@
 <div id="login">
-    <h3 class="text-center text-white pt-5">Login form</h3>
+    <h3 class="text-center text-white pt-5">Registro form</h3>
     <div class="container">
         <div id="login-row" class="row justify-content-center align-items-center">
             <div id="login-column" class="col-md-6">
                 <div id="login-box" class="col-md-12 border border-warning">
-                    <form (ngSubmit)="login(f)" id="login-form" class="form m-3" action="" method="post" #f="ngForm">
-                        <h3 class="text-center letra-heimdal">Login</h3>
+                    <form (ngSubmit)="onSubmit(f)" id="login-form" class="form m-3" action="" method="post" #f="ngForm">
+                        <h3 class="text-center letra-heimdal">Registro</h3>
                         <div class="form-group">
                             <label for="username" class="letra-heimdal">Nombre de Usuario:</label><br>
                             <input [(ngModel)]="usuario.username" required minlength="2" type="text" name="username" id="username" class="form-control border border-warning" placeholder="Nombre Usuario ">
-                            <span class="text-danger m-1" *ngIf="f.submitted && f.controls['username'].errors">El Nombre de usuario es obligatorio</span>
+                            <span class="text-danger m-1" *ngIf="f.submitted && f.controls['username'].errors">El Nombre de usuario es
+                obligatorio</span>
                         </div>
                         <div class="form-group">
                             <label for="password1" class="letra-heimdal">Constraseña:</label><br>
-                            <input [(ngModel)]="usuario.password" required minlength="1" type="password" name="password" id="password" class="form-control border border-warning" placeholder="Contraseña">
-                            <span class="text-danger m-1" *ngIf="f.submitted && f.controls['password'].errors">La contraseña debe tener al menos 6 caracteres</span>
+                            <input [(ngModel)]="usuario.password" required minlength="6" type="password" name="password" id="password" class="form-control border border-warning" placeholder="Contraseña">
+                            <span class="text-danger m-1" *ngIf="f.submitted && f.controls['password'].errors">La contraseña debe
+                tener al menos 6 caracteres</span>
 
                         </div>
                         <div class="form-group">
                             <label for="username" class="letra-heimdal">Email:</label><br>
                             <input [(ngModel)]="usuario.email" required email type="email" name="email" id="email" class="form-control border border-warning" placeholder="Email">
-                            <span class="text-danger m-1" *ngIf="f.submitted && f.controls['email'].errors">El email es obligatorio</span>
+                            <span class="text-danger m-1" *ngIf="f.submitted && f.controls['email'].errors">El email es
+                obligatorio</span>
                         </div>
                         <div class="form-group">
-                            <label for="remember-me" class="letra-heimdal"><span><input id="remember-me"
-                    name="remember-me" type="checkbox"></span> <span> Recordar mi usuario</span></label>
-                            <a [routerLink]="['/registro']" class="text-decoration-none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Registro</a>
+                            <label for="remember-me" class="letra-heimdal"><span><input id="remember-me" name="remember-me"
+                    type="checkbox"></span> <span> Recordar mi usuario</span></label>
+                            <a [routerLink]="['/login']" class="text-decoration-none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Login</a>
                             <br>
                             <input type="submit" name="submit" class="btn btn-info btn-md m-1 border-warning" value="Submit">
                         </div>
