@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { UsuarioModel } from '../models/usuario.models';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+
 
 
 
@@ -24,11 +26,24 @@ export class LoginComponent implements OnInit {
   login(form: NgForm){
     if (form.invalid){ return; }
 
+    Swal.fire({
+      allowOutsideClick: false,
+      icon: 'info',
+      text: 'espere por favor'
+    });
+    Swal.showLoading();
+
     this.auth.login( this.usuario)
       .subscribe( resp => {
+        Swal.close();
           console.log(localStorage);
           this.router.navigateByUrl('/home');
       }, (err) => {
+        Swal.fire({
+          allowOutsideClick: false,
+          icon: 'error',
+          text: err.error.non_field_errors[0],
+        });
           console.log(err.error.non_field_errors[0]);
       });
   }

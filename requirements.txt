@@ -16,3 +16,4 @@ npm install
 npm install bootstrap --save
 npm install jquery --save
 npm install popper.js --save
+npm install sweetalert2 --save
