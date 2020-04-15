@@ -1,7 +1,8 @@
-import { UsuarioModel } from './../models/usuario.models';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { UsuarioModel } from './../models/usuario.models';
+import { RecursoModel } from './../models/recurso.models';
 
 
 
@@ -41,13 +42,17 @@ export class AuthService {
     const authData = {
       ...usuario
     };
-    const headers = new HttpHeaders({
-      'Authorization': this.leerToken()
-    });
 
-    return this.http.post<any>(`${this.url}/gestion/user/`, authData, {headers })
+    // const httpOptions = {
+    //   headers: new HttpHeaders({
+    //     'Authorization': `Token ${this.leerToken()}`
+    //   })
+    // };
+
+    return this.http.post<any>(`${this.url}/gestion/user/`, authData)
       .pipe( map ( resp => {
           this.guardarToken(resp['idToken']);
+          console.log(resp);
           return resp;
       }));
   }
@@ -68,6 +73,18 @@ export class AuthService {
 
     return this.userToken;
 
+  }
+
+  nuevoRecurso( recurso: RecursoModel){
+    const authData = {
+      ...recurso
+    };
+
+    return this.http.post<any>(`${this.url}/gestion/user/`, authData)
+      .pipe(map(resp => {
+        console.log(resp);
+        return resp;
+      }));
   }
 
 }
