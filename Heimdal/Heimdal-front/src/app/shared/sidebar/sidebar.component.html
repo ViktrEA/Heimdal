@@ -1,5 +1,49 @@
+<!-- ============================================================== -->
+<!-- Left Sidebar - style you can find in sidebar.scss  -->
+<!-- ============================================================== -->
+<aside class="left-sidebar border border-warning">
+    <!-- Sidebar scroll-->
+    <div class="scroll-sidebar">
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav">
+            <ul id="sidebarnav">
+                <li class="user-profile">
+                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><img src="assets/img/users/gru.jpg" alt="user" /><span class="hide-menu text-heimdal h5">Gru
+            </span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a href="javascript:void()" class="text-heimdal">Mi Perfil </a></li>
+                        <li><a href="javascript:void()" class="text-heimdal">Salir</a></li>
+                    </ul>
+                </li>
+                <li class="nav-devider border border-warning border-top-0 border-left-0 border-right-0"></li>
+                <!-- <li class="nav-small-cap">PERSONAL</li> -->
+                <li> <a [routerLink]="[ '/dashboard']" class=" waves-effect waves-dark border border-warning border-top-0 border-left-0 border-right-0 shadow-sm p-3" href="#" aria-expanded="false"><span class="hide-menu text-heimdal h5">Dashboard</span></a>
+                </li>
+                <li> <a [routerLink]="[ '/recursos']" class="waves-effect waves-dark border border-warning border-top-0 border-left-0 border-right-0 shadow-sm p-3" href="#" aria-expanded="false"><span class="hide-menu text-heimdal h5">Recursos</span></a>
+                </li>
+                <li> <a [routerLink]="[ '/proyectos']" class="has-arrow waves-effect waves-dark border border-warning border-top-0 border-left-0 border-right-0 shadow-sm p-3" href="#" aria-expanded="false"><span class="hide-menu text-heimdal h5">Proyectos</span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a href="#" class="text-heimdal h5">Proyecto1 </a></li>
+                        <li><a href="#" class="text-heimdal h5">Proyecto2 </a></li>
+                        <li><a href="#" class="text-heimdal h5">Proyecto3 </a></li>
+                        <li><a href="#" class="text-heimdal h5">Proyecto4 </a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <!-- End Sidebar navigation -->
+    </div>
+    <!-- End Sidebar scroll-->
+</aside>
+<!-- ============================================================== -->
+<!-- End Left Sidebar - style you can find in sidebar.scss  -->
+<!-- ============================================================== -->
+
+
+
+
 <!-- Sidebar -->
-<div class="bg-white border border-warning border-top-0" id="sidebar-wrapper">
+<!-- <div class="bg-white border border-warning border-top-0" id="sidebar-wrapper">
     <div class="list-group list-group-flush">
         <a class="list-group-item list-group-item-action border-0"></a>
         <a routerLink="home" class="list-group-item list-group-item-action letra-heimdal border-0">
@@ -15,5 +59,6 @@
             <hr class="bg-warning">
         </a>
     </div>
-</div>
+</div> -->
+<!-- /#sidebar-wrapper -->
 <!-- /#sidebar-wrapper -->

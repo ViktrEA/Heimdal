@@ -1,23 +1,29 @@
-import { RegistroComponent } from './components/registro/registro.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
-import { ProyectosComponent } from './components/proyectos/proyectos.component';
-import { RecursosComponent } from './components/recursos/recursos.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { ProyectosComponent } from './pages/proyectos/proyectos.component';
+import { RecursosComponent } from './pages/recursos/recursos.component';
 import { LoginComponent } from './login/login.component';
+import { PagesComponent } from './pages/pages.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'proyectos', component: ProyectosComponent },
-  { path: 'recursos', component: RecursosComponent },
-  { path: 'registro', component: RegistroComponent },
+  {
+    path: '',
+    component: PagesComponent,
+    children: [
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'proyectos', component: ProyectosComponent },
+      { path: 'recursos', component: RecursosComponent },
+      { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
+
+    ]
+  },
   { path: 'login', component: LoginComponent },
-  { path: '', pathMatch: 'full', redirectTo: 'home' },
-  { path: '**', pathMatch: 'full', redirectTo: 'home' }
+  { path: '**', pathMatch: 'full', redirectTo: 'dashboard' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

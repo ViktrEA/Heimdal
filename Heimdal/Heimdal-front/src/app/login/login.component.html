@@ -1,42 +1,69 @@
-<div id="login">
-    <h3 class="text-center text-white pt-5">Login form</h3>
-    <div class="container">
-        <div id="login-row" class="row justify-content-center align-items-center">
-            <div id="login-column" class="col-md-6">
-                <div id="login-box" class="col-md-12 border border-warning">
-                    <form (ngSubmit)="login(f)" id="login-form" class="form m-3" action="" method="post" #f="ngForm">
-                        <h3 class="text-center letra-heimdal">Login</h3>
-                        <div class="form-group">
-                            <label for="username" class="letra-heimdal">Nombre de Usuario:</label><br>
-                            <input [(ngModel)]="usuario.username" required minlength="2" type="text" name="username" id="username" class="form-control border border-warning" placeholder="Nombre Usuario ">
-                            <span class="text-danger m-1" *ngIf="f.submitted && f.controls['username'].errors">El Nombre de usuario es obligatorio</span>
-                        </div>
-                        <div class="form-group">
-                            <label for="password1" class="letra-heimdal">Constraseña:</label><br>
-                            <input [(ngModel)]="usuario.password" required minlength="1" type="password" name="password" id="password" class="form-control border border-warning" placeholder="Contraseña">
-                            <span class="text-danger m-1" *ngIf="f.submitted && f.controls['password'].errors">La contraseña debe tener al menos 6 caracteres</span>
-
-                        </div>
-                        <div class="form-group">
-                            <label for="username" class="letra-heimdal">Email:</label><br>
-                            <input [(ngModel)]="usuario.email" required email type="email" name="email" id="email" class="form-control border border-warning" placeholder="Email">
-                            <span class="text-danger m-1" *ngIf="f.submitted && f.controls['email'].errors">El email es obligatorio</span>
-                        </div>
-                        <div class="form-group">
-                            <label for="remember-me" class="letra-heimdal"><span><input id="remember-me"
-                    name="remember-me" type="checkbox"></span> <span> Recordar mi usuario</span></label>
-                            <a [routerLink]="['/registro']" class="text-decoration-none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Registro</a>
-                            <br>
-                            <input type="submit" name="submit" class="btn btn-info btn-md m-1 border-warning" value="Submit">
-                        </div>
-                        <!-- <div id="register-link" class="text-right">
-                            <a href="#" class="text-info">Register here</a>
-                        </div> -->
-                    </form>
-                    <br>
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<section id="wrapper">
+    <div class="login-register" style="background-image:url(../assets/img/fondo-login.jpg);">
+        <div class="login-box card border border-warning">
+            <div class="card-body">
+                <div class="avatar border border-warning">
+                    <img src="assets/img/user.png" alt="user">
                 </div>
+                <br><br>
+                <form class="form-horizontal form-material" id="loginform" action="index.html">
+                    <h3 class="box-title m-b-20 text-center text-heimdal h2">Heimdal</h3>
+                    <div class="form-group ">
+                        <div class="col-xs-12">
+                            <input class="form-control" type="text" required="" placeholder="Usuario"> </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <input class="form-control" type="password" required="" placeholder="Contraseña"> </div>
+                    </div>
+                    <!-- <div class="form-group row">
+                        <div class="col-md-12">
+                            <div class="checkbox checkbox-info pull-left p-t-0">
+                                <input id="checkbox-signup" type="checkbox" class="filled-in chk-col-light-blue">
+                                <label for="checkbox-signup"> Remember me </label>
+                            </div> <a href="javascript:void(0)" id="to-recover" class="text-dark pull-right"><i
+                  class="fa fa-lock m-r-5"></i> Forgot pwd?</a>
+                        </div>
+                    </div> -->
+                    <br>
+                    <div class="form-group text-center">
+                        <div class="col-xs-12 p-b-20">
+                            <button class="btn btn-block btn-lg btn-info btn-rounded border border-warning" type="submit">Iniciar Sesión</button>
+                        </div>
+                    </div>
+                    <!-- <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 m-t-10 text-center">
+                            <div class="social">
+                                <a href="javascript:void(0)" class="btn  btn-facebook" data-toggle="tooltip" title="Login with Facebook"> <i aria-hidden="true" class="fa fa-facebook"></i> </a>
+                                <a href="javascript:void(0)" class="btn btn-googleplus" data-toggle="tooltip" title="Login with Google">
+                                    <i aria-hidden="true" class="fa fa-google-plus"></i> </a>
+                            </div>
+                        </div>
+                    </div> -->
+                </form>
+                <form class="form-horizontal" id="recoverform" action="index.html">
+                    <div class="form-group ">
+                        <div class="col-xs-12">
+                            <h3>Recover Password</h3>
+                            <p class="text-muted">Enter your Email and instructions will be sent to you! </p>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <div class="col-xs-12">
+                            <input class="form-control" type="text" required="" placeholder="Email"> </div>
+                    </div>
+                    <div class="form-group text-center m-t-20">
+                        <div class="col-xs-12">
+                            <button class="btn btn-primary btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Reset</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-</div>
-<br><br>
+</section>
+
+<!-- ============================================================== -->
+<!-- End Wrapper -->
