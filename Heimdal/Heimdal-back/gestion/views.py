@@ -32,7 +32,7 @@ class ProyectoViewSet(viewsets.ModelViewSet):
     queryset = Proyecto.objects.all()
     serializer_class = ProyectoSerializer
     def perform_create(self, serializer):
-        serializer.save(id=1)#apoyo--> estado='P', usuario_creacion=Recurso.objects.get(pk = 3))
+        serializer.save()   #apoyo--> estado='P', usuario_creacion=Recurso.objects.get(pk = 3))
     def perform_update(self, serializer):
         serializer.save()
         
