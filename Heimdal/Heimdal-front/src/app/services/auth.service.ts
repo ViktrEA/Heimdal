@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { UsuarioModel } from './../models/usuario.models';
-import { RecursoModel } from './../models/recurso.models';
 
 
 
@@ -21,7 +20,10 @@ export class AuthService {
     this.leerToken();
   }
 
-  logout(){}
+  logout(){
+    localStorage.removeItem('token');
+    this.userToken = '';
+  }
 
   login( usuario: UsuarioModel){
     const authData = {
@@ -69,16 +71,9 @@ export class AuthService {
 
   }
 
-  nuevoRecurso( recurso: RecursoModel){
-    const authData = {
-      ...recurso
-    };
+  estaAutenticado():boolean{
+    return this.userToken.length>6;
 
-    return this.http.post<any>(`${this.url}/gestion/user/`, authData)
-      .pipe(map(resp => {
-        console.log(resp);
-        return resp;
-      }));
   }
 
 }

@@ -20,14 +20,5 @@ export class RecursosComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(form: NgForm) {
-    if (form.invalid) { return; }
-    this.auth.nuevoRecurso(this.recurso)
-      .subscribe(resp => {
-        console.log(resp);
-      }, (err => {
-        console.log(err);
-      }));
-
-  }
+  
 }

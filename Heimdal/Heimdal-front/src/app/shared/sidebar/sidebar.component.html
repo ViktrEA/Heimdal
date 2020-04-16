@@ -6,13 +6,13 @@
     <div class="scroll-sidebar">
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav">
-            <ul id="sidebarnav">
+            <ul id="sidebarnav" routerLinkActive="active">
                 <li class="user-profile">
                     <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><img src="assets/img/users/gru.jpg" alt="user" /><span class="hide-menu text-heimdal h5">Gru
             </span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="javascript:void()" class="text-heimdal">Mi Perfil </a></li>
-                        <li><a href="javascript:void()" class="text-heimdal">Salir</a></li>
+                        <li (click)="salir()"><a href="javascript:void()" class="text-heimdal">Salir</a></li>
                     </ul>
                 </li>
                 <li class="nav-devider border border-warning border-top-0 border-left-0 border-right-0"></li>
