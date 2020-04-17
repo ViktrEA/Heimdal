@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { UsuarioModel } from './../models/usuario.models';
+import { Observable } from 'rxjs';
 
 
 
@@ -74,6 +75,14 @@ export class AuthService {
   estaAutenticado():boolean{
     return this.userToken.length>6;
 
+  }
+
+  getAllRecursos(): Observable<any>{
+    return this.http.get(this.url + '/gestion/recurso/', {headers: this.headers});
+  }
+
+  getAllProyectos(): Observable<any>{
+    return this.http.get(this.url + '/gestion/proyecto/', {headers: this.headers});
   }
 
 }

@@ -1,6 +1,5 @@
 import { RecursoModel } from './../../models/recurso.models';
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { AuthService } from './../../services/auth.service';
 
 
@@ -12,10 +11,21 @@ import { AuthService } from './../../services/auth.service';
 })
 export class RecursosComponent implements OnInit {
 
-  recurso: RecursoModel;
+  recursos: RecursoModel;
 
-
-  constructor(private auth: AuthService) { }
+  constructor(private auth:AuthService) { 
+    this.getRecursos();
+  }
+  getRecursos = () => {
+    this.auth.getAllRecursos().subscribe(
+      data => {
+        this.recursos = data;
+      },
+      error => {
+        console.log(error);
+      } 
+    )
+  }
 
   ngOnInit(): void {
   }

@@ -2,57 +2,13 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-3"><!--*ngFor="let proyecto in proyectos"-->
+        <div *ngFor="let proyecto of proyectos" class="col-3"><!--*ngFor="let proyecto in proyectos"-->
             <a class="" [routerLink]="[ '/proyectos']">
                 <div class="card border border-warning rounded">
                     <div class="card-body">
-                        <h4 class="card-title text-heimdal text-center h4 border border-warning border-top-0 border-left-0 border-right-0 shadow-sm p-3">Proyecto 1<!--{{proyecto.nombre}}--></h4>
-                        <p class="card-text text-heimdal">Proyecto 1<!--{{proyecto.descripcion_corta}}--></p>
-                        <div class="card-footer bg-transparent text-heimdal">#001<!--{{proyecto.codigo}}--></div>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-3"><!--*ngFor="let proyecto in proyectos"-->
-            <a class="" [routerLink]="[ '/proyectos']">
-                <div class="card border border-warning rounded">
-                    <div class="card-body">
-                        <h4 class="card-title text-heimdal text-center h4 border border-warning border-top-0 border-left-0 border-right-0 shadow-sm p-3">Proyecto 2<!--{{proyecto.nombre}}--></h4>
-                        <p class="card-text text-heimdal">Proyecto 2<!--{{proyecto.descripcion_corta}}--></p>
-                        <div class="card-footer bg-transparent text-heimdal">#002<!--{{proyecto.codigo}}--></div>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-3"><!--*ngFor="let proyecto in proyectos"-->
-            <a class="" [routerLink]="[ '/proyectos']">
-                <div class="card border border-warning rounded">
-                    <div class="card-body">
-                        <h4 class="card-title text-heimdal text-center h4 border border-warning border-top-0 border-left-0 border-right-0 shadow-sm p-3">Proyecto 3<!--{{proyecto.nombre}}--></h4>
-                        <p class="card-text text-heimdal">Proyecto 3<!--{{proyecto.descripcion_corta}}--></p>
-                        <div class="card-footer bg-transparent text-heimdal">#003<!--{{proyecto.codigo}}--></div>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-3"><!--*ngFor="let proyecto in proyectos"-->
-            <a class="" [routerLink]="[ '/proyectos']">
-                <div class="card border border-warning rounded">
-                    <div class="card-body">
-                        <h4 class="card-title text-heimdal text-center h4 border border-warning border-top-0 border-left-0 border-right-0 shadow-sm p-3">Proyecto 4<!--{{proyecto.nombre}}--></h4>
-                        <p class="card-text text-heimdal">Proyecto 4<!--{{proyecto.descripcion_corta}}--></p>
-                        <div class="card-footer bg-transparent text-heimdal">#004<!--{{proyecto.codigo}}--></div>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-3"><!--*ngFor="let proyecto in proyectos"-->
-            <a class="" [routerLink]="[ '/proyectos']">
-                <div class="card border border-warning rounded">
-                    <div class="card-body">
-                        <h4 class="card-title text-heimdal text-center h4 border border-warning border-top-0 border-left-0 border-right-0 shadow-sm p-3">Proyecto 5<!--{{proyecto.nombre}}--></h4>
-                        <p class="card-text text-heimdal">Proyecto 5<!--{{proyecto.descripcion_corta}}--></p>
-                        <div class="card-footer bg-transparent text-heimdal">#005<!--{{proyecto.codigo}}--></div>
+                        <h4 class="card-title text-heimdal text-center h4 border border-warning border-top-0 border-left-0 border-right-0 shadow-sm p-3">{{proyecto.nombre}}</h4>
+                        <p class="card-text text-heimdal">{{proyecto.descripcion_corta}}</p>
+                        <div class="card-footer bg-transparent">#{{proyecto.codigo}}</div>
                     </div>
                 </div>
             </a>

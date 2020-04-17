@@ -2,8 +2,8 @@ export class RecursoModel {
     url: string;
     codigo: string;
     nombre: string;
-    primerApellido: string;
-    segundoApellido: string;
+    primer_apellido: string;
+    segundo_apellido: string;
     email: string;
     tipo: string;
 }
