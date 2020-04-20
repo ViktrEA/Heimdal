@@ -19,6 +19,7 @@ export class RecursosComponent implements OnInit {
   getRecursos = () => {
     this.auth.getAllRecursos().subscribe(
       data => {
+        console.log(data);
         this.recursos = data;
       },
       error => {

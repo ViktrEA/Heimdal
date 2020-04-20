@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { UsuarioModel } from './../models/usuario.models';
 import { Observable } from 'rxjs';
-
+import { environment } from './../../environments/environment';
 
 
 @Injectable({
@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-  private url = 'http://127.0.0.1:8000';
+  private url = environment.apiUrl;
 
   userToken: string;
   headers = new HttpHeaders().set('Authorization', this.leerToken());
@@ -78,7 +78,7 @@ export class AuthService {
   }
 
   getAllRecursos(): Observable<any>{
-    return this.http.get(this.url + '/gestion/recurso/', {headers: this.headers});
+    return this.http.get(`${this.url}/gestion/recurso/`, {headers: this.headers});
   }
 
   getAllProyectos(): Observable<any>{
