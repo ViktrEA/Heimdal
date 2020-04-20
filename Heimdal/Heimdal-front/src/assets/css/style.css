@@ -84,18 +84,18 @@ Global Styles
 }
 
 body {
-    background: #f4f6f9;
+    background: #67757c;
     font-family: "Montserrat", sans-serif;
     margin: 0;
     overflow-x: hidden;
-    color: #67757c;
+    color: #004895;
     font-weight: 300;
 }
 
 html {
     position: relative;
     min-height: 100%;
-    background: #f4f6f9;
+    background: #67757c;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -111,7 +111,7 @@ a.link {
 
 a.link:hover,
 a.link:focus {
-    color: #398bf7;
+    color: #5F5A59;
 }
 
 .img-responsive {
@@ -140,7 +140,7 @@ h3,
 h4,
 h5,
 h6 {
-    color: #455a64;
+    color: #004895;
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
 }
@@ -923,7 +923,7 @@ ul.list-style-none li a {
 }
 
 ul.list-style-none li a:hover {
-    color: #398bf7;
+    color: #5F5A59;
 }
 
 
@@ -1074,7 +1074,7 @@ sidebar navigation
 }
 
 .sidebar-nav ul li a {
-    color: #687384;
+    color: #004895;
     padding: 8px 35px 8px 15px;
     display: block;
     font-size: 14px;
@@ -1083,12 +1083,12 @@ sidebar navigation
 
 .sidebar-nav ul li a.active,
 .sidebar-nav ul li a:hover {
-    color: #398bf7;
+    color: #5F5A59;
 }
 
 .sidebar-nav ul li a.active i,
 .sidebar-nav ul li a:hover i {
-    color: #398bf7;
+    color: #5F5A59;
 }
 
 .sidebar-nav ul li a.active {
@@ -1708,7 +1708,7 @@ Notify
 .hdr-nav-bar .navbar .navbar-nav>li.active>a,
 .hdr-nav-bar .navbar .navbar-nav>li:hover>a,
 .hdr-nav-bar .navbar .navbar-nav>li>a:focus {
-    border-color: #398bf7;
+    border-color: #5F5A59;
 }
 
 .hdr-nav-bar .navbar .navbar-nav .dropdown-toggle:after {

@@ -5,7 +5,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
-
+declare function init_plugins();
 
 
 @Component({
@@ -20,6 +20,9 @@ export class LoginComponent implements OnInit {
   constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit(): void {
+
+    init_plugins();
+
     this.usuario = new UsuarioModel();
   }
 

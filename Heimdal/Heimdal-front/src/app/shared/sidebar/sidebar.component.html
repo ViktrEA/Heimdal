@@ -6,7 +6,7 @@
     <div class="scroll-sidebar">
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav">
-            <ul id="sidebarnav" routerLinkActive="active">
+            <ul id="sidebarnav">
                 <li class="user-profile">
                     <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><img src="assets/img/users/gru.jpg" alt="user" /><span class="hide-menu text-heimdal h5">Gru
             </span></a>
@@ -17,11 +17,11 @@
                 </li>
                 <li class="nav-devider border border-warning border-top-0 border-left-0 border-right-0"></li>
                 <!-- <li class="nav-small-cap">PERSONAL</li> -->
-                <li> <a [routerLink]="[ '/dashboard']" class=" waves-effect waves-dark border border-warning border-top-0 border-left-0 border-right-0 shadow-sm p-3" href="#" aria-expanded="false"><span class="hide-menu text-heimdal h5">Dashboard</span></a>
+                <li> <a routerLinkActive="active" [routerLink]="[ '/dashboard']" class=" waves-effect waves-dark border border-warning border-top-0 border-left-0 border-right-0 shadow-sm p-3" href="#" aria-expanded="false"><span class="hide-menu h5">Dashboard</span></a>
                 </li>
-                <li> <a [routerLink]="[ '/recursos']" class="waves-effect waves-dark border border-warning border-top-0 border-left-0 border-right-0 shadow-sm p-3" href="#" aria-expanded="false"><span class="hide-menu text-heimdal h5">Recursos</span></a>
+                <li> <a routerLinkActive="active" [routerLink]="[ '/recursos']" class="waves-effect waves-dark border border-warning border-top-0 border-left-0 border-right-0 shadow-sm p-3" href="#" aria-expanded="false"><span class="hide-menu h5">Recursos</span></a>
                 </li>
-                <li> <a [routerLink]="[ '/proyectos']" class="has-arrow waves-effect waves-dark border border-warning border-top-0 border-left-0 border-right-0 shadow-sm p-3" href="#" aria-expanded="false"><span class="hide-menu text-heimdal h5">Proyectos</span></a>
+                <li> <a routerLinkActive="active" [routerLink]="[ '/proyectos']" class="has-arrow waves-effect waves-dark border border-warning border-top-0 border-left-0 border-right-0 shadow-sm p-3" href="#" aria-expanded="false"><span class="hide-menu h5">Proyectos</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="#" class="text-heimdal h5">Proyecto 1 </a></li>
                         <li><a href="#" class="text-heimdal h5">Proyecto 2 </a></li>

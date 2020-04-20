@@ -1,27 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
-.btn-heimdal{
+
+.btn-heimdal {
     background-color: #EE7421 !important;
 }
 
-.card-footer{
-    color:lightgrey;
+.card-footer {
+    color: lightgrey;
 }
 
-.bg-heimdal{
+.bg-heimdal {
     background-color: #326296 !important;
     color: white;
 }
 
-a:link{
+a:link {
     text-decoration: none;
 }
 
-.card-footer{
+.card-footer {
     text-align: right;
 }
 
 .text-heimdal {
-    color: #004895 !important;
+    color: #004895;
 }
 
 .btn-info {

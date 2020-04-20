@@ -26,16 +26,16 @@
 }
 
 .topbar .top-navbar .navbar-nav>.nav-item>span {
-    color: #398bf7;
+    color: #004895;
 }
 
 .topbar .navbar-light .navbar-nav .nav-item>a.nav-link {
-    color: #a6b7bf;
+    color: #004895;
 }
 
 .topbar .navbar-light .navbar-nav .nav-item>a.nav-link:hover,
 .topbar .navbar-light .navbar-nav .nav-item>a.nav-link:focus {
-    color: #242a33 !important;
+    color: #004895 !important;
 }
 
 .logo-center .topbar .navbar-header {
@@ -60,16 +60,16 @@
 *******************/
 
 a {
-    color: #398bf7;
+    color: #004895;
 }
 
 a.link:hover,
 a.link:focus {
-    color: #398bf7 !important;
+    color: #004895 !important;
 }
 
 .bg-theme {
-    background-color: #398bf7 !important;
+    background-color: #f4f6f9 !important;
 }
 
 .pagination>.active>a,
@@ -92,18 +92,18 @@ a.link:focus {
 }
 
 .text-themecolor {
-    color: #398bf7 !important;
+    color: #004895 !important;
 }
 
 .profile-tab li a.nav-link.active,
 .customtab li a.nav-link.active {
     border-bottom: 2px solid #398bf7;
-    color: #398bf7;
+    color: #004895;
 }
 
 .profile-tab li a.nav-link:hover,
 .customtab li a.nav-link:hover {
-    color: #398bf7;
+    color: #004895;
 }
 
 
@@ -113,14 +113,14 @@ a.link:focus {
 
 .btn-themecolor,
 .btn-themecolor.disabled {
-    background: #398bf7;
+    background: #004895;
     color: #ffffff;
     border: 1px solid #398bf7;
 }
 
 .btn-themecolor:hover,
 .btn-themecolor.disabled:hover {
-    background: #398bf7;
+    background: #f4f6f9;
     opacity: 0.7;
     border: 1px solid #398bf7;
 }
@@ -129,7 +129,7 @@ a.link:focus {
 .btn-themecolor:focus,
 .btn-themecolor.disabled.active,
 .btn-themecolor.disabled:focus {
-    background: #028ee1;
+    background: #f4f6f9;
 }
 
 
@@ -157,7 +157,7 @@ a.link:focus {
 }
 
 .user-profile .profile-text a {
-    color: #687384 !important;
+    color: #004895 !important;
 }
 
 .card-no-border .sidebar-footer {
@@ -165,30 +165,30 @@ a.link:focus {
 }
 
 .label-themecolor {
-    background: #398bf7;
+    background: #004895;
 }
 
 .sidebar-nav>ul>li.active>a {
-    color: #ffffff;
+    color: #5F5A59;
     border-color: #398bf7;
 }
 
 .sidebar-nav>ul>li.active>a i {
-    color: #ffffff;
+    color: #5F5A59;
 }
 
 .sidebar-nav ul li a.active,
 .sidebar-nav ul li a:hover {
-    color: #ffffff;
+    color: #5F5A59;
 }
 
 .sidebar-nav ul li a.active i,
 .sidebar-nav ul li a:hover i {
-    color: #ffffff;
+    color: #5F5A59;
 }
 
 .sidebar-nav ul li.nav-small-cap {
-    color: #687384;
+    color: #004895;
 }
 
 @media (min-width: 768px) {
