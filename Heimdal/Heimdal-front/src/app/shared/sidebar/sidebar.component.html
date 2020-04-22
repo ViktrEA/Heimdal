@@ -8,26 +8,30 @@
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
                 <li class="user-profile">
-                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><img src="assets/img/users/gru.jpg" alt="user" /><span class="hide-menu text-heimdal h5">Gru
+                    <a class="has-arrow waves-effect waves-dark" aria-expanded="false"><img src="assets/img/users/gru.jpg" alt="user" /><span class="hide-menu h5">Gru
             </span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="javascript:void()" class="text-heimdal">Mi Perfil </a></li>
-                        <li (click)="salir()"><a href="javascript:void()" class="text-heimdal">Salir</a></li>
+                        <li><a routerLinkActive="" routerLink="">Mi Perfil </a></li>
+                        <li><a (click)="salir()">Salir</a></li>
                     </ul>
                 </li>
                 <li class="nav-devider border border-warning border-top-0 border-left-0 border-right-0"></li>
-                <!-- <li class="nav-small-cap">PERSONAL</li> -->
-                <li> <a routerLinkActive="active" [routerLink]="[ '/dashboard']" class=" waves-effect waves-dark border border-warning border-top-0 border-left-0 border-right-0 shadow-sm p-3" href="#" aria-expanded="false"><span class="hide-menu h5">Dashboard</span></a>
+                <li> <a routerLinkActive="active" [routerLink]="[ '/dashboard']" class=" waves-effect waves-dark" href="#" aria-expanded="false"><span class="hide-menu h6">Dashboard</span></a>
                 </li>
-                <li> <a routerLinkActive="active" [routerLink]="[ '/recursos']" class="waves-effect waves-dark border border-warning border-top-0 border-left-0 border-right-0 shadow-sm p-3" href="#" aria-expanded="false"><span class="hide-menu h5">Recursos</span></a>
+                <li class="nav-devider border border-warning border-top-0 border-left-0 border-right-0">
                 </li>
-                <li> <a routerLinkActive="active" [routerLink]="[ '/proyectos']" class="has-arrow waves-effect waves-dark border border-warning border-top-0 border-left-0 border-right-0 shadow-sm p-3" href="#" aria-expanded="false"><span class="hide-menu h5">Proyectos</span></a>
+                <li> <a routerLinkActive="active" [routerLink]="[ '/recursos']" class="waves-effect waves-dark" href="#" aria-expanded="false"><span class="hide-menu h6">Recursos</span></a>
+                </li>
+                <li class="nav-devider border border-warning border-top-0 border-left-0 border-right-0">
+                </li>
+                <li> <a routerLinkActive="active" [routerLink]="[ '/proyectos']" class="has-arrow waves-effect waves-dark" aria-expanded="false"><span
+                      class="hide-menu h6">Proyectos</span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li><a href="#" class="text-heimdal h5">Proyecto 1 </a></li>
-                        <li><a href="#" class="text-heimdal h5">Proyecto 2 </a></li>
-                        <li><a href="#" class="text-heimdal h5">Proyecto 3 </a></li>
-                        <li><a href="#" class="text-heimdal h5">Proyecto 4 </a></li>
-                        <li><a href="#" class="text-heimdal h5">Proyecto 5 </a></li>
+                        <li><a href="#" class="h5">Proyecto 1 </a></li>
+                        <li><a href="#" class="h5">Proyecto 2 </a></li>
+                        <li><a href="#" class="h5">Proyecto 3 </a></li>
+                        <li><a href="#" class="h5">Proyecto 4 </a></li>
+                        <li><a href="#" class="h5">Proyecto 5 </a></li>
                     </ul>
                 </li>
             </ul>
@@ -39,27 +43,3 @@
 <!-- ============================================================== -->
 <!-- End Left Sidebar - style you can find in sidebar.scss  -->
 <!-- ============================================================== -->
-
-
-
-
-<!-- Sidebar -->
-<!-- <div class="bg-white border border-warning border-top-0" id="sidebar-wrapper">
-    <div class="list-group list-group-flush">
-        <a class="list-group-item list-group-item-action border-0"></a>
-        <a routerLink="home" class="list-group-item list-group-item-action letra-heimdal border-0">
-            INICIO
-            <hr class="bg-warning">
-        </a>
-        <a routerLink="recursos" class="list-group-item list-group-item-action letra-heimdal border-0">
-            RECURSO
-            <hr class="bg-warning">
-        </a>
-        <a routerLink="proyectos" class="list-group-item list-group-item-action letra-heimdal border-0">
-            PROYECTOS
-            <hr class="bg-warning">
-        </a>
-    </div>
-</div> -->
-<!-- /#sidebar-wrapper -->
-<!-- /#sidebar-wrapper -->
