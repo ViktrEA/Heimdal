@@ -4,8 +4,8 @@
     background-color: #EE7421 !important;
 }
 
-.card-footer {
-    color: lightgrey;
+.card {
+    background-color: none;
 }
 
 .bg-heimdal {

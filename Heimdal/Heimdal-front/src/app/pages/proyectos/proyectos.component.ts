@@ -1,6 +1,6 @@
 import { ProyectoModel } from './../../models/proyecto.models';
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from './../../services/auth.service';
+import { ProyectoService } from './../../services/proyecto.service';
 
 @Component({
   selector: 'app-proyectos',
@@ -10,23 +10,12 @@ import { AuthService } from './../../services/auth.service';
 })
 export class ProyectosComponent implements OnInit {
 
-  proyectos: ProyectoModel; 
+  proyectos: ProyectoModel;
+  proyecto;
 
-  constructor(private auth:AuthService) { 
-    this.getProyectos();
-  }
-  getProyectos = () => {
-    this.auth.getAllProyectos().subscribe(
-      data => {
-        this.proyectos = data;
-      },
-      error => {
-        console.log(error);
-      } 
-    )
-  }
-
+  constructor(private proyectoService: ProyectoService ) { }
   ngOnInit(): void {
+    this.proyecto = this.proyectoService.getAllProyecto();
   }
 
 }

@@ -1,17 +1,22 @@
-
-
 <div class="container-fluid">
     <div class="row">
-        <div *ngFor="let proyecto of proyectos" class="col-3"><!--*ngFor="let proyecto in proyectos"-->
-            <a class="" [routerLink]="[ '/proyectos']">
-                <div class="card border border-warning rounded">
-                    <div class="card-body">
-                        <h4 class="card-title text-heimdal text-center h4 border border-warning border-top-0 border-left-0 border-right-0 shadow-sm p-3">{{proyecto.nombre}}</h4>
-                        <p class="card-text text-heimdal">{{proyecto.descripcion_corta}}</p>
-                        <div class="card-footer bg-transparent">#{{proyecto.codigo}}</div>
-                    </div>
+        <div *ngFor="let proyecto of proyecto | async" class="col-3">
+            <!--*ngFor="let proyecto in proyectos"-->
+
+            <!-- <a class="" [routerLink]="[ '/proyectos']"> -->
+
+
+            <div class="card border border-warning rounded">
+                <div class="card-body">
+
+                    <h4 class="card-title text-heimdal text-center h4 border border-warning border-top-0 border-left-0 border-right-0 shadow-sm p-3">
+                        <a routerLink="/tareas/{{proyecto.codigo}}" class="text-heimdal"> {{proyecto.nombre}}</a>
+                    </h4>
+                    <p class="card-text text-heimdal">{{proyecto.descripcion_corta}}</p>
+                    <div class="card-footer bg-transparent">#{{proyecto.codigo}}</div>
                 </div>
-            </a>
+            </div>
+
         </div>
     </div>
 </div>
