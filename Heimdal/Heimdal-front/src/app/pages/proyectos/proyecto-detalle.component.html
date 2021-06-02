@@ -1,0 +1,151 @@
+<app-breadcrumbs [items]="breadcrumbs"></app-breadcrumbs>
+<div class="container d-flex justify-content-between">
+    <div>
+        <button class="btn btn-danger" routerLink="/proyectos">
+            <i class="fa fa-arrow-left"></i>
+            Regresar
+
+        </button>
+
+    </div>
+
+    <div>
+        <button class="btn btn-info" [routerLink]="[ '/tareas', proyecto.id]">
+            <i class="fa fa-eye"></i>
+            Tareas
+
+        </button>
+
+
+    </div>
+</div>
+<br>
+<br>
+<!-- ============================================================== -->
+<!-- Start form -->
+<!-- ============================================================== -->
+<div class="container">
+    <div class="row animated fadeIn faster">
+        <div class="col">
+            <form ngNativeValidate (ngSubmit)="guardar (f)" #f="ngForm">
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="column col-6">
+                            <label>Código</label>
+                            <input type="text" class=" form-control" minlength="2" maxlength="50" placeholder="código" name="codigo" [(ngModel)]="proyecto.codigo" required>
+                        </div>
+                        <div class="column col-6">
+                            <label>Nombre</label>
+                            <input type="text" class=" form-control" minlength="3" maxlength="50" placeholder="Nombre" name="Nombre" [(ngModel)]="proyecto.nombre" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="column col-6">
+                            <label> Descripcion Corta</label>
+                            <textarea rows="3" type="text" class=" form-control" minlength="3" maxlength="140" placeholder="Descripcion Corta" name="descrc" [(ngModel)]="proyecto.descripcion_corta" required></textarea>
+                        </div>
+                        <div class="column col-6">
+                            <label> Descripcion Larga</label>
+                            <textarea rows="3" type="text" class=" form-control" maxlength="140" placeholder="Descripcion Largo" name="descrl" [(ngModel)]="proyecto.descripcion_larga" required></textarea>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+                    <div *ngIf="mostrar  else other_content" class="form-group col-4">
+                        <label for="estado">Estado : </label>
+                        <br>
+                        <select id="estado" class="form-control" name="estadoP" [(ngModel)]="proyecto.estado" required>
+                            <option value="A">Activo</option>
+                            <option value="F">Finalizado</option>
+                            <option value="P">Pendiente de aprobación</option>
+                        </select>
+
+                    </div>
+                    <ng-template #other_content>
+                        <div class="form-group col-4">
+
+                            <label for="estado">Estado : </label>
+                            <br>
+                            <p class="text-heimdal" *ngIf="proyecto.estado == 'A'" type="text" class=" form-control" disabled="disabled"><strong>Activo</strong></p>
+                            <p class="text-heimdal" *ngIf="proyecto.estado == 'F'" type="text" class=" form-control" disabled="disabled"> <strong>Finalizado</strong></p>
+                            <p class="text-heimdal" *ngIf="proyecto.estado == 'P'" type="text" class=" form-control" disabled="disabled"><strong> Pendiente de Aprobación </strong></p>
+
+                            <small class="form-text text-muted"> este campo no es editable</small>
+                        </div>
+                    </ng-template>
+
+                    <div class="form-group col-4">
+                        <label> Usuario Creación</label>
+                        <input type="text" class=" form-control" disabled="disabled" name="usuarioc" [(ngModel)]="proyecto.usuario_creacion" required>
+
+                        <small class="form-text text-muted"> este campo no es editable</small>
+                    </div>
+                    <div class="form-group col-4">
+                        <label>Fecha Creación </label>
+                        <input type="datetime-local" class=" form-control" placeholder="Fecha de Creación" disabled="disabled" name="fechac" [(ngModel)]="proyecto.fecha_creacion" required>
+                        <small class="form-text text-muted"> este campo no es editable</small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="column col-6">
+                            <label>Fecha Final </label>
+                            <input type="date" class=" form-control" placeholder="Fecha Final" name="fechaf" [(ngModel)]="proyecto.fecha_final" required>
+                        </div>
+                        <div class="column col-6">
+                            <label for="usuarioasig">Asignar usuarios : </label>
+                            <select multiple class="form-control" id="usuarioasig" name="usuarioasig" [(ngModel)]="proyecto.usuarios_asignados">
+
+                                <option *ngFor="let usuariosasig of recurso " [value]="usuariosasig.id">
+                                    {{usuariosasig.nombre}}
+
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="column col-6">
+
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-info w-25">
+                                <i class="fa fa-edit"></i>
+                             Actualizar
+                          </button>
+                        </div>
+
+                    </div>
+                    <div class="column col-6">
+                        <div *ngIf="proyecto.estado !='F'">
+                            <button (click)="cierreProyectoE(proyecto.id)" type="button" class="btn btn-info w-25 border rounded border-warning float-left">
+                            <i class="fa fa-archive"></i>
+                            Finalizar
+                        </button>
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+            </form>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End form -->
+        <!-- ============================================================== -->
+
+
+    </div>
+</div>

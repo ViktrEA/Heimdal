@@ -1,0 +1,16 @@
+BACK-END:
+
+pip install django
+pip install pillow
+pip install djangorestframeworks
+pip install djongo
+pip install dnspython
+pip install django-cors-headers
+pip install django-filter
+
+
+FRONT-END:
+
+Node.js
+nmp install -g @angular/cli
+npm install sweetalert2 --save

@@ -1,0 +1,37 @@
+<app-breadcrumbs [items]='breadcrumbs'></app-breadcrumbs>
+
+<div class="container-fluid">
+    <div class="container d-flex justify-content-end">
+        <div>
+            <button [routerLink]="[ '/actividad_recurso', idRecurso]" class="btn btn-info" type="button">
+            <i class="fa fa-eye"></i> Actividad
+          </button>
+        </div>
+    </div>
+    <br>
+    <div class="d-flex justify-content-center" *ngFor="let drecurso of recurso | async">
+        <div class="card mb-3 w-50">
+            <div class="row no-gutters">
+                <div class="col-md-8">
+                    <div class="card-body border-warning">
+                        <p class="card-text"><strong class="h6">Nombre: </strong> {{drecurso.nombre}}</p>
+                        <p class="card-text"><strong class="h6">Primer Apellido: </strong> {{drecurso.primer_apellido}}</p>
+                        <p class="card-text"><strong class="h6">Segundo Apellido: </strong> {{drecurso.segundo_apellido}}</p>
+                        <p class="card-text"><strong class="h6">Correo: </strong> {{drecurso.email}}</p>
+                        <p *ngIf=" drecurso.tipo =='A' " class="card-text"><strong class="h6">Tipo: </strong> Gru</p>
+                        <p *ngIf=" drecurso.tipo =='B' " class="card-text"><strong class="h6">Tipo: </strong> Nazario</p>
+                        <p *ngIf=" drecurso.tipo =='C' " class="card-text"><strong class="h6">Tipo: </strong> Minion</p>
+                        <hr class="border border-warning border-bottom-0">
+                        <div class="d-flex justify-content-center">
+                            <button [routerLink]="[ '/editarrecurso', drecurso.id]" type="button" class="btn border border-warning rounded text-heimdal">Editar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex align-items-center">
+                    <img [src]="drecurso.imagen" class="img-fluid rounded-circle img-circle" [alt]="drecurso.nombre">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

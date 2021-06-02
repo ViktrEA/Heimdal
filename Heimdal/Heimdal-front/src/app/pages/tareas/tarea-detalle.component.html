@@ -1,0 +1,103 @@
+<app-breadcrumbs [items]="breadcrumbs"></app-breadcrumbs>
+<div class="container-fluid">
+    <div class="d-flex justify-content-between">
+        <div>
+            <p class="h4">Detalle de Tarea</p>
+        </div>
+        <div *ngFor="let tarea of tarea | async">
+            <button [routerLink]="[ '/add_tiempo', tarea.id]" class="btn btn-info bg-heimdal" type="button">
+                <i class="fa fa-plus"></i> Añadir tiempo
+            </button>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div *ngFor="let tarea of tarea | async" class="col-12">
+            <div class="card border border-warning rounded">
+                <div class="card-body">
+                    <div class="card-title border border-warning border-top-0 border-left-0 border-right-0 shadow-sm p-3">
+                        <h2 class="text-heimdal text-center h4">{{tarea.nombre}}</h2>
+                        <div *ngIf = "tarea.estado != 'F'">
+                            <button (click)="finalizarTarea(tarea.id)" type="button" class="right btn border border-warning rounded text-heimdal">Finalizar</button>
+                        </div>
+                    </div>
+                    <p class="text-heimdal"><strong>Descripción: </strong>{{tarea.descripcion_larga}}</p>
+                    <br>
+                    <p class="text-heimdal" *ngIf = "tarea.prioridad == 'A'"><strong>Prioridad: </strong>Alta</p>
+                    <p class="text-heimdal" *ngIf = "tarea.prioridad == 'B'"><strong>Prioridad: </strong>Media</p>
+                    <p class="text-heimdal" *ngIf = "tarea.prioridad == 'C'"><strong>Prioridad: </strong>Baja</p>
+                    <br>
+                    <p class="text-heimdal" *ngIf = "tarea.estado == 'A'"><strong>Estado: </strong>Activo</p>
+                    <p class="text-heimdal" *ngIf = "tarea.estado == 'F'"><strong>Estado: </strong>Finalizado</p>
+                    <p class="text-heimdal" *ngIf = "tarea.estado == 'P'"><strong>Estado: </strong>Pendiente de Aprobación</p>
+                    <br>
+                    <p class="text-heimdal"><strong>Usuarios asignados: </strong><span *ngFor="let nombre of nombres">{{nombre}}, </span></p>
+                    <br>
+                    <p class="text-heimdal"><strong>Fecha final: </strong> {{tarea.fecha_final | date: 'd MMM, yyyy'}}</p>
+                    <hr>
+                    <div>
+                        <strong style="color: grey">Comentarios</strong>
+                        <a data-toggle="modal" href='#modalCrear' class="text-heimdal">
+                            <button type="button" class="btn right border border-warning rounded text-heimdal">+ Add</button>
+                        </a>
+                           
+
+                        <div class="modal fade" id="modalCrear"> 
+                            <div class="modal-dialog"> 
+                                <div class="modal-content"> 
+                                    <div class="modal-header"> 
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> 
+                                    </div> 
+                                    <div class="modal-body"> 
+                                        <input (input)="nuevoComentario($event.target.value)" type="text" class="form-control" minlength=" 1 " maxlength="500" placeholder="Comentario" name="texto" required>
+                                    </div> 
+                                    <div class="modal-footer"> 
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button> 
+                                        <button type="submit" (click)="guardarComentario()" data-dismiss="modal" class="btn btn-info">Añadir</button> 
+                                    </div> 
+                                </div> 
+                            </div> 
+                        </div> 
+                        
+
+                        <div *ngFor="let texto of comentario | async">
+                            <p class="text-heimdal"><strong>{{usuComentario}}: </strong> {{texto.texto}} 
+                                &nbsp;<a data-toggle="modal" href='#modalUpdate' class="text-heimdal">
+                                    <button *ngIf = "usuario.id == texto.usuario" (click) = "idComent(texto.id)" class="btn btn-sm btn-info mr-1"><i class="fa fa-edit "></i></button>
+                                </a>
+                                &nbsp;<button *ngIf = "usuario.id == texto.usuario" (click) = "borrarComentario(texto.id)" class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i></button>
+                            </p>
+                        </div>
+
+
+                        <div class="modal fade" id="modalUpdate"> 
+                            <div class="modal-dialog"> 
+                                <div class="modal-content"> 
+                                    <div class="modal-header"> 
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> 
+                                    </div> 
+                                    <div class="modal-body"> 
+                                        <input (input)="textoEditado($event.target.value)" type="text" class="form-control" minlength=" 1 " maxlength="500" placeholder="Comentario" name="texto" required>
+                                    </div> 
+                                    <div class="modal-footer"> 
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button> 
+                                        <button type="submit" (click) = "editarComentario(idComentario)" data-dismiss="modal" class="btn btn-info">Editar</button> 
+                                    </div> 
+                                </div> 
+                            </div> 
+                        </div>
+                        
+                        
+                    </div>
+                    <hr>
+                    <p class="text-heimdal"><strong>Usuario de creación: </strong>{{usuCreacion}}</p>
+                    <br>
+                    <p class="text-heimdal"><strong>Fecha de creación: </strong> {{tarea.fecha_creacion | date: 'd MMM, yyyy'}}</p>
+                    <div class="card-footer bg-transparent">#{{tarea.codigo}}</div>
+                    <button [routerLink]="[ '/tareaedit', tarea.id]" type="button" class="btn border border-warning rounded text-heimdal">Editar</button>
+                    <button [routerLink]="[ '/tiempo_tarea', tarea.id]" type="button" class="right btn btn-heimdal border border-warning rounded">Actividad</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

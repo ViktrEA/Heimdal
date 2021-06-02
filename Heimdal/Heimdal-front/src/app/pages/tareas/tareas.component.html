@@ -1,0 +1,49 @@
+<app-breadcrumbs [items]="breadcrumbs"></app-breadcrumbs>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6">
+            <div class="form-inline">
+                <label for="estado">Estado: &nbsp;&nbsp;</label>
+                <select [(ngModel)]="estadoTarea" name="estado" id="" (ngModelChange)='onEstadoSelect($event)' class="form-control">
+                    <option value="" >
+                        Ver Todos
+                    </option>
+                    <option value="A">
+                        Activo
+                    </option>
+                    <option value="F">
+                        Finalizado
+                    </option>
+                    <option value="P">
+                        Pendiente de Aprobación
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="col text-right" *ngIf = "idProyecto != null">
+            <button [routerLink]="[ '/tareacrear', idProyecto]" class="btn btn-info mt-3 ">
+                <i class="fa fa-plus "></i>
+                Tarea
+            </button>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div *ngFor="let tarea of tarea | async" class="col-3 mb-3">
+            <div class="card border border-warning rounded">
+                <div class="card-body">
+                    <h4 class="card-title text-heimdal text-center h6 border border-warning border-top-0 border-left-0 border-right-0 shadow-sm p-3">
+                        <a [routerLink]="[ '/tarea', tarea.id]" class="text-heimdal"> {{tarea.nombre}}</a>
+                    </h4>
+                    <p class="card-text text-heimdal">{{tarea.descripcion_corta}}</p>
+                    <div class="card-footer card-footer-tarea bg-transparent">
+                        <button class="left btn btn-sm btn-danger" (click)="eliminar(tarea.id)">
+                            <i class="fa fa-trash-o "></i>
+                        </button>
+                    <p class="right">#{{tarea.codigo}}</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

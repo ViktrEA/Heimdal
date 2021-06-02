@@ -1,0 +1,40 @@
+<app-breadcrumbs [items]="breadcrumbs"></app-breadcrumbs>
+<div class="container">
+    <div>
+        <button [routerLink]="[ '/tarea', tareaId]" class="btn btn-danger" type="button" align="rigth">
+      <i class="fa fa-arrow-left"></i> Regresar
+    </button>
+    </div>
+    <div class="row">
+        <div class="col-3">
+
+        </div>
+        <div class="col-5">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Asignar Tiempo</h4>
+                    <form ngNativeValidate #f="ngForm" (ngSubmit)="guardar(f.value)" class="form p-t-20">
+                        <div class="form-group">
+                            <label for="exampleInputuname2">Fecha</label>
+                            <div class="input-group">
+                                <input [(ngModel)]="tiempoTarea.fecha" name="fecha" type="date" class="form-control" placeholder="Fecha">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputuname2">Horas</label>
+                            <div class="input-group">
+                                <input [(ngModel)]="tiempoTarea.horas" name="horas" type="integer" class="form-control" placeholder="Horas">
+                            </div>
+                        </div>
+                        <div align="right">
+                            <button type="submit" class="btn bg-heimdal waves-effect waves-light m-r-10">
+                              <i class="fa fa-save"></i>
+                              Guardar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

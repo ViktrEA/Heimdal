@@ -1,0 +1,65 @@
+<app-breadcrumbs [items]="breadcrumbs"></app-breadcrumbs>
+<div class="row">
+    <div class="col text-right">
+        <button routerLink="/crearProyecto/" class="btn btn-info mt-3 ">
+      <i class="fa fa-plus "></i>
+      Proyecto
+    </button>
+    </div>
+</div>
+<div class="container-fluid">
+
+    <!---==============================================-->
+    <!--=  ================= Filtro por estado ==================== -->
+    <div class="row">
+        <div class="col-6">
+            <div class="form-inline">
+                <label for="estado">Filtro de Estado &nbsp;&nbsp;</label>
+                <select [(ngModel)]="ProyecSelectEst" name="estado" id="" (ngModelChange)='onEstadoSelect($event)' class="form-control">
+
+                <option value="" >
+                    Ver Todos
+                </option>
+                <option value="A">
+                  Activo
+                </option>
+                <option value="F">
+                    Finalizado
+                  </option>
+                  <option value="P">
+                    Pendiente de Aprobación
+                  </option>
+            </select>
+            </div>
+        </div>
+        <!--=====End Filtro Estado===========================================-->
+        <!--=====Search=============-->
+        <div class="col-6">
+            <div class="input-group">
+                <input #input (keyup)="buscarProyecto(input.value)" type="text" class="form-control" placeholder="Buscar Proyecto ...">
+                <div class="input-group-append">
+                </div>
+            </div>
+        </div>
+        <!--=====End Search===========================================-->
+    </div>
+    <!---==============================================-->
+    <br>
+    <div class="row">
+        <div *ngFor="let proyecto of proyecto |async" class="col-3 mb-3">
+            <div class="card border border-warning rounded">
+                <div class="card-body">
+                    <h4 class="card-title text-heimdal text-center h6 border border-warning border-top-0 border-left-0 border-right-0 shadow-sm p-3">
+                        <a [routerLink]="[ '/tareas', proyecto.id]" class="text-heimdal"> {{proyecto.nombre}}</a>
+                    </h4>
+                    <p class="card-text text-heimdal text-justify">{{proyecto.descripcion_corta}}</p>
+                    <div class="card-footer bg-transparent">#{{proyecto.codigo}}</div>
+                    <div class="text-center">
+                        <a class="text-heimdal float-right" [routerLink]="['/proyecto/', proyecto.id]"> Ver más..</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

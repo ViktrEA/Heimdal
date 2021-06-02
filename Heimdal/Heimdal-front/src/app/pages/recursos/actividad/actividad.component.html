@@ -1,0 +1,64 @@
+<app-breadcrumbs [items]="breadcrumbs"></app-breadcrumbs>
+
+<!-- Container fluid  -->
+<!-- ============================================================== -->
+<div class="container-fluid">
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+    <div class="container d-flex justify-content-end">
+        <div>
+            <button [routerLink]="[ '/recurso', recurso.id]" class="btn btn-danger" type="button">
+              <i class="fa fa-arrow-left"></i> Regresar
+            </button>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-10">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title text-heimdal h4">Usuario: <strong>{{recurso.nombre}}</strong></h4>
+                    <div class="table-responsive">
+                        <table id="mainTable" class="table editable-table table-bordered table-hover m-b-0">
+                            <thead>
+                                <tr class="bg-heimdal">
+                                    <th class="text-center">Tarea</th>
+                                    <th class="text-center">Fecha</th>
+                                    <th class="text-center">Horas</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor=" let tiempo of tiempoTarea">
+                                    <td class="text-justify">{{tiempo.tarea.nombre}}</td>
+                                    <td>{{tiempo.fecha | date: 'dd/MM/yyyy'}}</td>
+                                    <td class="text-center">{{tiempo.horas}}:00</td>
+                                    <td class="text-center">
+                                        <button routerLink="/act_tiempo/{{tiempo.id}}" class="btn btn-info mr-1 ">
+                                            <i class="fa fa-edit "></i>
+                                        </button>
+
+                                        <button class="btn btn-danger" (click)="eliminar(tiempo.id,recurso.id)">
+                                            <i class="fa fa-trash-o "></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End PAge Content -->
+    <!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- End Container fluid  -->
+<!-- ============================================================== -->
+<!-- End Container fluid  -->
+<!-- ============================================================== -->

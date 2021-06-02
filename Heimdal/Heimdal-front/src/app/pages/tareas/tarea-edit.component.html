@@ -1,0 +1,72 @@
+<app-breadcrumbs [items]="breadcrumbs"></app-breadcrumbs>
+<div class="row text-right">
+    <div class="col">
+        <button (click)="goTo(id)" class="btn btn-danger">
+            <i class="fa fa-arrow-left"></i>
+            Volver
+        </button>
+    </div>
+</div>
+<div class="row animated fadeIn faster">
+    <div class="col">
+        <form ngNativeValidate (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="form-group col-6">
+                    <label>Código</label>
+                    <input type="text" class=" form-control" minlength=" 1 " maxlength="50 " name="codigo" [(ngModel)]="tarea.codigo" required>
+                </div>
+                <div class="form-group col-6">
+                    <label>Nombre</label>
+                    <input type="text" class=" form-control" minlength=" 3 " maxlength="50" name="Nombre" [(ngModel)]="tarea.nombre" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label> Descripcion Corta</label>
+                    <textarea row="4" type="text" minlength=" 3 " maxlength="140 " class=" form-control" name="descrc" [(ngModel)]="tarea.descripcion_corta" required></textarea>
+                </div>
+                <div class="form-group col-6">
+                    <label> Descripcion Larga</label>
+                    <textarea row="4" type="text" maxlength="255" class=" form-control" name="descrl" [(ngModel)]="tarea.descripcion_larga"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-4">
+                    <label>Prioridad </label>
+                    <select id="prioridad" name="Prioridad" [(ngModel)]="tarea.prioridad" class="form-control" placeholder="Prioridad" name="prioridad" required>
+                        <option value="A">Alta</option>
+                        <option value="B">Media</option>
+                        <option value="C">Baja</option>
+                    </select>
+                </div>
+                <div class="form-group col-4">
+                    <label>Estado </label>
+                    <select id="estado" [(ngModel)]="tarea.estado" class="form-control" placeholder="Estado" name="estado" required>
+                        <option value="A">Activo</option>
+                        <option value="F">Finalizado</option>
+                        <option value="P">Pendiente de aprobación</option>
+                    </select>
+                </div>
+                <div class="form-group col-4">
+                    <label>Fecha Final </label>
+                    <input type="date" class=" form-control" name="fechaf" [(ngModel)]="tarea.fecha_final">
+                </div>
+            </div>
+            <div>
+                <label for="usuarioasig">Asignar usuarios : </label>
+                <select multiple class="form-control" id="usuarioasig" name="usuarioasig" [(ngModel)]="tarea.usuarios_asignados">
+                    <option  *ngFor="let usuariosasig of recursos " [value]="usuariosasig.id">
+                        {{usuariosasig.nombre}}
+                    </option>
+                </select>
+            </div>
+            <hr>
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-info w-25">
+                    <i class="fa fa-edit"></i>
+                    Actualizar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

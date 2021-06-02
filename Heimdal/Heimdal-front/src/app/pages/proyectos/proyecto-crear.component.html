@@ -1,0 +1,104 @@
+<app-breadcrumbs [items]="breadcrumbs"></app-breadcrumbs>
+
+<div class="row text-right">
+    <div class="col">
+        <button class="btn btn-danger" routerLink="/proyectos">
+            <i class="fa fa-arrow-left"></i>
+            Regresar
+
+        </button>
+
+    </div>
+
+</div>
+<!-- ============================================================== -->
+<!-- Start form -->
+<!-- ============================================================== -->
+<div class="row animated fadeIn faster">
+    <div class="col">
+        <form ngNativeValidate (ngSubmit)="guardar (f)" #f="ngForm">
+            <!-- <div class="form-group">
+                <label>Id Proyecto</label>
+                <input type="text" name="id" class=" form-control" disabled="disabled" placeholder="Id proyecto" [(ngModel)]="proyecto.id">
+                <small class="form-text text-muted"> este campo no es editable</small>
+
+            </div> -->
+            <div class="form-group">
+                <div class="row">
+                    <div class="column col-6">
+                        <label>Código</label>
+                        <input type="text" class=" form-control" minlength="1" maxlength="50" placeholder="código" name="codigo" [(ngModel)]="proyecto.codigo" required>
+                    </div>
+                    <div class="column col-6">
+                        <label>Nombre</label>
+                        <input type="text" class=" form-control" minlength="3" maxlength="50" placeholder="Nombre" name="nombre" [(ngModel)]="proyecto.nombre" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="column col-6">
+                        <label> Descripcion Corta</label>
+                        <textarea row="3" type="text" minlength="3" maxlength="140" class=" form-control" placeholder="Descripcion Corta" name="descrc" [(ngModel)]="proyecto.descripcion_corta" required></textarea>
+                    </div>
+                    <div class="column col-6">
+                        <label> Descripcion Larga</label>
+                        <textarea row="3" type="text" maxlength="255" class=" form-control" placeholder="Descripcion Larga" name="descrl" [(ngModel)]="proyecto.descripcion_larga"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="mostrar" class="form-group">
+                <div class="row">
+                    <div class="column col-6">
+                        <label for="estado">Estado  :</label>
+                        <br>
+                        <select id="estado" class="form-control" name="estadoP" [(ngModel)]="proyecto.estado" required>
+                            <option value="A">Activo</option>
+                            <option value="F">Finalizado</option>
+                            <option value="P">Pendiente de aprobación</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="column col-5">
+
+                        <label>Fecha Final </label>
+                        <input type="date" class=" form-control" placeholder="Fecha Final" name="fechaf" [(ngModel)]="proyecto.fecha_final">
+
+                    </div>
+                    <div class="column col-7">
+                        <label for="usuarioasig">Asignar usuarios : </label>
+                        <select multiple class="form-control" id="usuarioasig" name="usuarioasig" [(ngModel)]="proyecto.usuarios_asignados">
+
+                        <option  *ngFor="let usuariosasig of recurso " [value]="usuariosasig.id">
+                            {{usuariosasig.nombre}}
+
+                        </option>
+
+                    </select>
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-info w-25">
+                    <i class="fa fa-save"></i>
+                    Guardar
+                </button>
+
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+    <!-- ============================================================== -->
+    <!-- End form -->
+    <!-- ============================================================== -->
+
+
+</div>
+<!--este seria el detalle proyecto-->

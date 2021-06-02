@@ -1,0 +1,65 @@
+<app-breadcrumbs [items]="breadcrumbs"></app-breadcrumbs>
+<!-- Container fluid  -->
+<!-- ============================================================== -->
+<div class="container-fluid">
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+    <div class="container d-flex justify-content-between">
+        <div>
+            <button [routerLink]="[ '/tarea', tarea.id]" class="btn btn-danger" type="button">
+              <i class="fa fa-arrow-left"></i> Regresar
+            </button>
+        </div>
+        <div>
+            <button [routerLink]="[ '/add_tiempo', tarea.id]" class="btn bg-heimdal" type="button">
+              <i class="fa fa-plus"></i> Añadir tiempo
+            </button>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-10">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="mainTable" class="table editable-table table-bordered table-hover m-b-0">
+                            <thead>
+                                <tr class="bg-heimdal">
+                                    <th class="text-center">usuario</th>
+                                    <th class="text-center">Fecha</th>
+                                    <th class="text-center">Horas</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor=" let tiempo of tiempoTarea">
+                                    <td class="text-center">{{tiempo.usuario.nombre}}</td>
+                                    <td>{{tiempo.fecha}}</td>
+                                    <td class="text-center">{{tiempo.horas}}:00</td>
+                                    <td class="text-center">
+                                        <button *ngIf="tiempo.usuario.id == usuario.id" routerLink="/act_tiempo/{{tiempo.id}}" class="btn btn-info mr-1 ">
+                                            <i class="fa fa-edit "></i>
+                                        </button>
+
+                                        <button *ngIf="tiempo.usuario.id == usuario.id" class="btn btn-danger" (click)="eliminar(tiempo.id)">
+                                            <i class="fa fa-trash-o "></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End PAge Content -->
+    <!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- End Container fluid  -->
+<!-- ============================================================== -->

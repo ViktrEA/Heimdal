@@ -1,0 +1,42 @@
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<section id="wrapper">
+    <div class="login-register" style="background-image:url(../assets/img/fondo-login.jpg);">
+        <br><br><br>
+        <div class="login-box card border border-warning">
+            <div class="card-body">
+                <div class="avatar border border-warning">
+                    <img src="assets/img/user.png" alt="user">
+                </div>
+                <br><br>
+                <form ngNativeValidate class="form-horizontal form-material" id="loginform" #f="ngForm" (ngSubmit)="login(f)">
+                    <h3 class="box-title m-b-20 text-center text-heimdal h2">Heimdal</h3>
+                    <div class="form-group ">
+                        <div class="col-xs-12">
+                            <input [(ngModel)]="usuario.username" minlength="2" type="text" name="username" class="form-control" placeholder="Nombre Usuario " required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <input [(ngModel)]="usuario.password" minlength="4" class="form-control" type="password" name="password" placeholder="Contraseña" required>
+                        </div>
+                    </div>
+                    <!-- <div class="form-group">
+                        <div class="col-xs-12">
+                            <input [(ngModel)]="usuario.email" email class="form-control" type="email" name="email" placeholder="Correo" required>
+                        </div>
+                    </div> -->
+                    <br>
+                    <div class="form-group text-center">
+                        <div class="col-xs-12 p-b-20">
+                            <button class="btn btn-block btn-lg btn-info btn-rounded" type="submit">Iniciar Sesión</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================== -->
+<!-- End Wrapper -->

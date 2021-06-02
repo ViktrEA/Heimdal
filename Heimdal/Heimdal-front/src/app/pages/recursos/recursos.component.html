@@ -1,0 +1,56 @@
+<app-breadcrumbs [items]="breadcrumbs"></app-breadcrumbs>
+
+<div class="container-fluid">
+    <div class="row" *ngIf="recursoLog.tipo == 'A'">
+        <div class="col text-right">
+            <button [routerLink]="[ '/crearrecurso']" class="btn btn-info mt-3 ">
+        <i class="fa fa-plus "></i>
+        Recurso
+      </button>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table editable-table table-bordered table-hover m-b-0">
+                            <thead>
+                                <tr class="bg-heimdal">
+                                    <th scope="col">#Código</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">1º Apellido</th>
+                                    <th scope="col">2º Apellido</th>
+                                    <th scope="col">E-Mail</th>
+                                    <th scope="col">Tipo</th>
+                                    <th scope="col">Opciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="rectr" *ngFor="let recurso of recursos">
+                                    <td>{{recurso.codigo}}</td>
+                                    <td>{{recurso.nombre}}</td>
+                                    <td>{{recurso.primer_apellido}}</td>
+                                    <td>{{recurso.segundo_apellido}}</td>
+                                    <td>{{recurso.email}}</td>
+                                    <td *ngIf="recurso.tipo == 'A' ">Gru</td>
+                                    <td *ngIf="recurso.tipo == 'B' ">Nazario</td>
+                                    <td *ngIf="recurso.tipo == 'C' ">Minion</td>
+                                    <td>
+                                        <button title="Perfil de {{recurso.nombre}}" class="btn btn-info mr-1 btnEditarRecurso" [routerLink]="[ '/recurso', recurso.id]">
+                                            <i class="fa fa-eye"></i>
+                                        </button>
+                                        <button title="Eliminar {{recurso.nombre}}" class="btn btn-danger btnEliminarRecurso" (click)="eliminarRecurso(recurso.id)">
+                                            <i class="fa fa-trash-o "></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

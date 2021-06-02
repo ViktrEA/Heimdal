@@ -1,0 +1,61 @@
+<!-- ============================================================== -->
+<!-- Bread crumb and right sidebar toggle -->
+<!-- ============================================================== -->
+<div *ngIf="items.length > 0 ">
+    <div class="row page-titles" *ngFor="let item of items">
+        <div class="col align-self-center">
+            <br>
+            <p class="text-themecolor">
+                <span class="h5 text-uppercase text-secondary">{{item.titulo}}</span>
+                <a *ngIf="item.urlNombre" class="text-heimdal h5" [routerLink]="[item.urlNombre,item.id]">{{item.nombre}}</a>
+                <span *ngIf="!item.urlNombre" class="text-heimdal h5">{{item.nombre}}</span>
+            </p>
+        </div>
+        <div class="col align-self-center">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a [routerLink]="[ '/dashboard']" class="text-heimdal">Dashboard</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a *ngIf="item.tipo == 'A' && item.urlTitulo1" [routerLink]="item.urlTitulo1" class="text-heimdal">{{item.titulo1}}</a>
+                    <a *ngIf="item.titulo1 != 'Recurso'" [routerLink]="item.urlTitulo1" class="text-heimdal">{{item.titulo1}}</a>
+                    <span *ngIf="item.tipo != 'A' && item.titulo1 == 'Recurso'" class="text-heimdal">{{item.titulo1}}</span>
+                </li>
+                <li class="breadcrumb-item text-heimdal">
+                    <a *ngIf="item.urlSubtitulo" [routerLink]="[item.urlSubtitulo,item.subId]" class="text-heimdal">{{item.subtitulo}}</a>
+                    <span *ngIf="!item.urlSubtitulo" class="text-heimdal">{{item.subtitulo}}</span>
+                </li>
+                <li class="breadcrumb-item text-heimdal" *ngIf="item.subtitulo">
+                    <a *ngIf="item.urlSubtitulo1" [routerLink]="[item.urlSubtitulo1,item.subId1]" class="text-heimdal">{{item.subtitulo1}}</a>
+                    <span *ngIf="!item.urlSubtitulo1" class="text-heimdal">{{item.subtitulo1}}</span>
+                </li>
+                <li class="breadcrumb-item text-heimdal" *ngIf="item.subtitulo1">
+                    {{item.subtitulo2}}
+                </li>
+
+            </ol>
+        </div>
+    </div>
+
+</div>
+
+<div class="row page-titles" *ngIf="items.length == 0 ">
+    <div class="col align-self-center">
+        <br>
+        <p class="h5 text-uppercase text-secondary">Dashboard</p>
+    </div>
+    <div class="col-md-7 align-self-center">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">
+                <a [routerLink]="[ '/dashboard']" class="text-heimdal">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active" *ngIf="items.length == 0 ">
+            </li>
+
+        </ol>
+    </div>
+</div>
+<hr class="border border-warning border-bottom-0">
+<!-- ============================================================== -->
+<!-- End Bread crumb and right sidebar toggle -->
+<!-- ============================================================== -->
